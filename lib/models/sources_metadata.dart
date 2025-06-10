@@ -13,7 +13,7 @@ class SourceMetadata extends MetadataItemModel {
   bool _clickable = false;
   SourceMetadata(String name) {
     _name = name;
-    _clickable = Uri.tryParse(_name)?.hasAbsolutePath?? false;
+    _clickable = Uri.tryParse(_name)?.hasAbsolutePath ?? false;
   }
 
   @override
@@ -44,7 +44,7 @@ class SourceMetadata extends MetadataItemModel {
 
   @override
   void onClick(context) {
-    if(_clickable){
+    if (_clickable) {
       launchUrl(Uri.tryParse(_name)!);
     }
   }
@@ -59,14 +59,14 @@ class SourceMetadata extends MetadataItemModel {
 
   @override
   String toString() => _name;
-  
+
   @override
   String get name => _name;
-  
+
   @override
   // TODO: implement clickable
   bool get clickable => _clickable;
-  
+
   @override
   // TODO: implement id
   int get id => 0;
@@ -84,12 +84,10 @@ class SourcesMetadata extends MetadataContainer {
   @override
   Future<MetadataItemModel?> addItem(MetadataItemModel item) async {
     Response<ApiMedia> response = await apiClient.getMediaApi().mediaItemPatch(
-                                    id: _id,
-                                    apiMedia: ApiMedia(
-                                      (b) => b..sources = ListBuilder([item.name, ..._items.map((i) => i.name)]),
-                                    ),
+      id: _id,
+      apiMedia: ApiMedia((b) => b..sources = ListBuilder([item.name, ..._items.map((i) => i.name)])),
     );
-    if (response.statusCode != 200){
+    if (response.statusCode != 200) {
       return null;
     }
     _items.add(SourceMetadata(item.name));
@@ -131,12 +129,10 @@ class SourcesMetadata extends MetadataContainer {
     toDelete.remove(item);
     debugPrint(toDelete.toString());
     Response<ApiMedia> response = await apiClient.getMediaApi().mediaItemPatch(
-                                    id: _id,
-                                    apiMedia: ApiMedia(
-                                      (b) => b..creators = ListBuilder([...toDelete.map((i) => i._name)]),
-                                    ),
+      id: _id,
+      apiMedia: ApiMedia((b) => b..creators = ListBuilder([...toDelete.map((i) => i._name)])),
     );
-    if (response.statusCode != 200){
+    if (response.statusCode != 200) {
       return false;
     }
 
