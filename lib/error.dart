@@ -23,7 +23,7 @@ class _ErrorPageState extends State<ErrorPage> {
                 Center(child: Text(widget.exception.message!)),
                 TextButton(
                   style: ButtonStyle(
-                    foregroundColor: MaterialStateProperty.all<Color>(
+                    foregroundColor: WidgetStateProperty.all<Color>(
                       Colors.blue,
                     ),
                   ),
@@ -35,7 +35,7 @@ class _ErrorPageState extends State<ErrorPage> {
                 ),
                                 TextButton(
                   style: ButtonStyle(
-                    foregroundColor: MaterialStateProperty.all<Color>(
+                    foregroundColor: WidgetStateProperty.all<Color>(
                       Colors.blue,
                     ),
                   ),

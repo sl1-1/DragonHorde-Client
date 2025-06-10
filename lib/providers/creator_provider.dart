@@ -16,7 +16,7 @@ class CreatorProvider extends ChangeNotifier {
   UnmodifiableListView<String> get aliases => UnmodifiableListView(_aliases);
   UnmodifiableListView<ApiCollection> get collections {
     if (_collections == null) {
-      load_collections();
+      loadCollections();
       return UnmodifiableListView([]);
     } else {
       return UnmodifiableListView(_collections!);
@@ -45,7 +45,7 @@ class CreatorProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> load_collections() async {
+  Future<void> loadCollections() async {
     Response<CollectionResult> results = await apiClient.getCreatorsApi().getCreatorsCollection(id: id);
     _collections = results.data!.result.toList();
     notifyListeners();

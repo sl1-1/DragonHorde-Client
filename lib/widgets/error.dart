@@ -13,7 +13,7 @@ class ErrorHandlerWidgetState extends State<ErrorHandlerWidget> {
   // Error handling logic
   void onError(FlutterErrorDetails errorDetails) {
     // Add your error handling logic here, e.g., logging, reporting to a server, etc.
-    print('Caught error: ${errorDetails.exception}');
+    debugPrint('Caught error: ${errorDetails.exception}');
   }
 
   @override

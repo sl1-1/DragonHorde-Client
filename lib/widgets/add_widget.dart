@@ -1,5 +1,4 @@
 import 'package:dragonhorde_client_flutter/widgets/auto_complete_search.dart';
-import 'package:flutter/foundation.dart';
 
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
