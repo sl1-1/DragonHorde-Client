@@ -8,7 +8,7 @@ abstract class MetadataItemModel {
   InputChip displayChip(context);
   bool get clickable;
   void onClick(context);
-  void onHover();
+  String? toolTip();
   Widget contextMenu(BuildContext context, Offset offset); 
   Icon get icon;
   @override

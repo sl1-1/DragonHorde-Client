@@ -14,7 +14,6 @@ class Metadata extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    debugPrint(metadata.items.toString());
     return Column(
       children: [
         Align(alignment: Alignment.centerLeft, child: AddMetadata(metadataContainer: metadata)),
@@ -45,8 +44,9 @@ class Metadata extends StatelessWidget {
                               ),
                               onDeleted: metadata.canRemove ? () => metadata.removeItem(i) : null,
                               onPressed: i.clickable ? (){i.onClick(context);}: null,
+                              tooltip: i.toolTip(),
                             )
-                            : Chip(
+                            : Tooltip(message: i.toolTip(), child: Chip(
                               visualDensity: VisualDensity(horizontal: -4, vertical: -4),
                               materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                               backgroundColor: Theme.of(context).colorScheme.secondary,
@@ -56,6 +56,7 @@ class Metadata extends StatelessWidget {
                                 ).style.apply(color: Theme.of(context).colorScheme.onSecondary),
                                 i.displayText,
                               ),
+                            ),
                             ),
                   ),
               ],

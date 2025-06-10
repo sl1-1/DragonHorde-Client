@@ -54,8 +54,8 @@ class CollectionMetadata extends MetadataItemModel {
   }
 
   @override
-  void onHover() {
-    // TODO: implement onHover
+  String? toolTip() {
+    return null;
   }
   
   @override

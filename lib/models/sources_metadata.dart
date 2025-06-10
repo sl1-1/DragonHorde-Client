@@ -50,8 +50,8 @@ class SourceMetadata extends MetadataItemModel {
   }
 
   @override
-  void onHover() {
-    // TODO: implement onHover
+  String? toolTip() {
+    return _name;
   }
 
   @override
