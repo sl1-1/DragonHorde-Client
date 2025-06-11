@@ -1,7 +1,7 @@
 import 'package:built_collection/built_collection.dart';
 import 'package:dio/dio.dart';
 import 'package:dragonhorde_client_flutter/api_provider.dart';
-import 'package:dragonhorde_client_flutter/models/media_grid_item.dart';
+import 'package:dragonhorde_client_flutter/models/media_item.dart';
 import 'package:dragonhorde_client_flutter/util/value_notifier_list.dart';
 import 'package:dragonhorde_client_flutter/widgets/grid_item.dart';
 import 'package:dragonhorde_client_flutter/widgets/thumbnail.dart';

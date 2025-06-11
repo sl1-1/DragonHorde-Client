@@ -22,6 +22,7 @@ class MediaItemModel extends GridItemModel with ChangeNotifier {
   late CollectionsMetadata collections;
   late SourcesMetadata sources;
   late Map<String, List<String>> _tags;
+  bool loading = true;
 
   void _fromApiModel(ApiMedia model) {
     artists = model.creators != null ? ArtistsMetadata(id, model.creators!.toList()) : ArtistsMetadata(id, []);
@@ -38,6 +39,8 @@ class MediaItemModel extends GridItemModel with ChangeNotifier {
         model.tagGroups != null
             ? model.tagGroups!.map((k, v) => MapEntry(k, v.toList())).asMap()
             : <String, List<String>>{};
+    loading = false;
+    notifyListeners();
   }
 
   MediaItemModel.fromId(this.id, this.search) {
@@ -52,7 +55,6 @@ class MediaItemModel extends GridItemModel with ChangeNotifier {
   Future<void> load({required int id}) async {
     Response<ApiMedia> results = await apiClient.getMediaApi().getMediaItem(id: id);
     _fromApiModel(results.data!);
-    notifyListeners();
   }
 
   @override

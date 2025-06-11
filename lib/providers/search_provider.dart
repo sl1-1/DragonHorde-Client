@@ -1,6 +1,6 @@
 import 'dart:collection';
 import 'package:dragonhorde_client_flutter/api_provider.dart';
-import 'package:dragonhorde_client_flutter/models/media_grid_item.dart';
+import 'package:dragonhorde_client_flutter/models/media_item.dart';
 import 'package:dragonhorde_client_flutter/util/value_notifier_list.dart';
 import 'package:flutter/material.dart';
 

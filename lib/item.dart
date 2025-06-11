@@ -1,4 +1,4 @@
-import 'package:dragonhorde_client_flutter/models/media_grid_item.dart';
+import 'package:dragonhorde_client_flutter/models/media_item.dart';
 import 'package:dragonhorde_client_flutter/providers/search_provider.dart';
 import 'package:dragonhorde_client_flutter/widgets/image.dart';
 import 'package:dragonhorde_client_flutter/widgets/metadata.dart';
@@ -40,7 +40,7 @@ class _ItemPageState extends State<ItemPage> {
             child: ListenableBuilder(
               listenable: widget.item,
               builder: (context, child) {
-                return Row(
+                return widget.item.loading ? CircularProgressIndicator(): Row(
                       mainAxisSize: MainAxisSize.max,
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: <Widget>[
